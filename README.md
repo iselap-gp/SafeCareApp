@@ -83,7 +83,8 @@ El núcleo lógico de decisión ante incidentes se encuentra aislado en la clase
 ### Opción A: Probar la app (APK precompilado)
 1. Descarga el instalador desde la sección de **[Releases](https://github.com/iselapilar2006-prog/SafeCareApp/releases)**.
 2. Instala el APK en un terminal físico con Android 8.0 o superior.
-3. Desde *Ajustes → Consola de Simulación (TFC)* puedes interactuar con los sensores simulados.
+3. Regístrate con una cuenta nueva desde la pantalla de bienvenida.
+4. Desde *Ajustes → Consola de Simulación (TFC)* puedes interactuar con los sensores simulados.
 
 ### Opción B: Entorno de desarrollo
 1. Clona el repositorio:
