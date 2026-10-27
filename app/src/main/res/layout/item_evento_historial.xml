@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/margin_8"
+    app:cardBackgroundColor="@color/safecare_surface_tint"
+    app:cardCornerRadius="18dp"
+    app:cardElevation="5dp"
+    app:strokeColor="@color/safecare_stroke"
+    app:strokeWidth="1dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/margin_16">
+
+        <FrameLayout
+            android:id="@+id/contenedorFondoIconoEvento"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:contentDescription="@null">
+
+            <ImageView
+                android:id="@+id/imagenIconoEvento"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_gravity="center"
+                android:importantForAccessibility="no"
+                app:tint="@color/white"
+                tools:src="@android:drawable/ic_menu_info_details" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/tvTituloEvento"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_12"
+            android:layout_marginEnd="@dimen/margin_8"
+            android:textColor="@color/safecare_primary"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/tvHoraEvento"
+            app:layout_constraintStart_toEndOf="@+id/contenedorFondoIconoEvento"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Sensor salón" />
+
+        <TextView
+            android:id="@+id/tvSubtituloEvento"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_12"
+            android:layout_marginTop="@dimen/margin_4"
+            android:layout_marginEnd="@dimen/margin_8"
+            android:textColor="@color/safecare_text_secondary"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toStartOf="@+id/tvHoraEvento"
+            app:layout_constraintStart_toEndOf="@+id/contenedorFondoIconoEvento"
+            app:layout_constraintTop_toBottomOf="@+id/tvTituloEvento"
+            tools:text="Movimiento detectado" />
+
+        <TextView
+            android:id="@+id/tvHoraEvento"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0.9"
+            android:textColor="@color/safecare_text_secondary"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="09:45" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

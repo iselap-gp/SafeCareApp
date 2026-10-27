@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_app_screen"
+    tools:context=".ui.CamarasFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:padding="@dimen/margin_16">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/margin_24">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/cabecera_btn_perfil_tamano"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:letterSpacing="0.02"
+                        android:text="@string/camaras_titulo_seccion"
+                        android:textColor="@color/safecare_primary"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvSubtituloVigilancia"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_4"
+                        android:text="@string/camaras_subtitulo_hub"
+                        android:textColor="@color/safecare_text_secondary"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnIconoPerfil"
+                    style="@style/Widget.SafeCare.Button.PerfilCabecera"
+                    android:layout_width="@dimen/cabecera_btn_perfil_tamano"
+                    android:layout_height="@dimen/cabecera_btn_perfil_tamano"
+                    android:contentDescription="@string/desc_icono_perfil"
+                    app:icon="@drawable/ic_cuenta_usuario_perfil"
+                    app:iconGravity="textStart" />
+            </LinearLayout>
+
+            <!-- Cámara 1: Entrada principal (16:9) -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/tarjetaCamaraEntrada"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_16"
+                app:cardBackgroundColor="@color/safecare_surface_tint"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="4dp"
+                app:strokeColor="@color/safecare_stroke"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/margin_8">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <FrameLayout
+                            android:id="@+id/contenedorVistaEntrada"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:background="@drawable/fondo_vista_video_demo"
+                            app:layout_constraintDimensionRatio="16:9"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageView
+                                android:id="@+id/imvStreamEntrada"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:contentDescription="@string/camaras_desc_stream_entrada"
+                                android:scaleType="centerCrop"
+                                android:visibility="gone"
+                                tools:visibility="visible" />
+
+                            <ImageView
+                                android:id="@+id/imvIconoReproducirEntrada"
+                                android:layout_width="56dp"
+                                android:layout_height="56dp"
+                                android:layout_gravity="center"
+                                android:contentDescription="@string/camaras_desc_reproducir"
+                                android:src="@drawable/ic_reproducir_central" />
+
+                            <TextView
+                                android:id="@+id/tvAtencionAlertaEntrada"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="top"
+                                android:background="@color/safecare_alerta"
+                                android:gravity="center"
+                                android:paddingVertical="4dp"
+                                android:text="@string/camaras_atencion_alerta_activa"
+                                android:textColor="@color/white"
+                                android:textSize="11sp"
+                                android:textStyle="bold"
+                                android:visibility="gone"
+                                tools:visibility="visible" />
+
+                            <TextView
+                                android:id="@+id/badgeEnVivoEntrada"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="top|start"
+                                android:layout_margin="@dimen/margin_8"
+                                android:background="@drawable/fondo_badge_en_vivo"
+                                android:paddingHorizontal="@dimen/margin_8"
+                                android:paddingVertical="@dimen/margin_4"
+                                android:text="@string/camaras_badge_en_vivo"
+                                android:textColor="@color/safecare_exito"
+                                android:textSize="11sp"
+                                android:textStyle="bold" />
+
+                            <LinearLayout
+                                android:id="@+id/overlayAlertasEntrada"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom"
+                                android:background="@color/safecare_overlay_camara"
+                                android:orientation="vertical"
+                                android:padding="@dimen/margin_8"
+                                android:visibility="gone"
+                                tools:visibility="visible">
+
+                                <TextView
+                                    android:id="@+id/tvAlertaPuertaEntrada"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/camaras_alerta_puerta_abierta"
+                                    android:textColor="@color/white"
+                                    android:textSize="13sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/tvControlInfantilEntrada"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/margin_4"
+                                    android:text="@string/camaras_control_infantil"
+                                    android:textColor="@color/white"
+                                    android:textSize="11sp"
+                                    android:visibility="gone"
+                                    tools:visibility="visible" />
+                            </LinearLayout>
+                        </FrameLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_8"
+                        android:paddingHorizontal="@dimen/margin_4"
+                        android:text="@string/camaras_etiqueta_entrada_principal"
+                        android:textColor="@color/safecare_primary"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Cámaras 2 y 3: Salón | Cocina -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_12"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/tarjetaCamaraSalon"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_6"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="@color/safecare_surface_tint"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="3dp"
+                    app:strokeColor="@color/safecare_stroke"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/margin_8">
+
+                        <FrameLayout
+                            android:id="@+id/contenedorVistaSalon"
+                            android:layout_width="match_parent"
+                            android:layout_height="120dp"
+                            android:background="@drawable/fondo_vista_video_demo">
+
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_gravity="center"
+                                android:contentDescription="@string/camaras_desc_reproducir"
+                                android:src="@drawable/ic_reproducir_central" />
+
+                            <TextView
+                                android:id="@+id/tvAtencionAlertaSalon"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="top"
+                                android:background="@color/safecare_alerta"
+                                android:gravity="center"
+                                android:paddingVertical="3dp"
+                                android:text="@string/camaras_atencion_alerta_activa"
+                                android:textColor="@color/white"
+                                android:textSize="9sp"
+                                android:textStyle="bold"
+                                android:visibility="gone"
+                                tools:visibility="visible" />
+
+                            <TextView
+                                android:id="@+id/badgeEnVivoSalon"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="top|start"
+                                android:layout_margin="@dimen/margin_4"
+                                android:background="@drawable/fondo_badge_en_vivo"
+                                android:paddingHorizontal="6dp"
+                                android:paddingVertical="2dp"
+                                android:text="@string/camaras_badge_en_vivo"
+                                android:textColor="@color/safecare_exito"
+                                android:textSize="9sp"
+                                android:textStyle="bold" />
+
+                            <LinearLayout
+                                android:id="@+id/overlayAlertasSalon"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom"
+                                android:background="@color/safecare_overlay_camara"
+                                android:orientation="vertical"
+                                android:padding="@dimen/margin_4"
+                                android:visibility="gone"
+                                tools:visibility="visible">
+
+                                <TextView
+                                    android:id="@+id/tvAlertaMovimientoSalon"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/camaras_alerta_movimiento"
+                                    android:textColor="@color/white"
+                                    android:textSize="10sp"
+                                    android:textStyle="bold"
+                                    android:visibility="gone"
+                                    tools:visibility="visible" />
+
+                                <TextView
+                                    android:id="@+id/tvFiltroMascotasSalon"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:text="@string/camaras_filtro_mascotas_activo"
+                                    android:textColor="@color/white"
+                                    android:textSize="9sp"
+                                    android:visibility="gone"
+                                    tools:visibility="visible" />
+
+                                <TextView
+                                    android:id="@+id/tvVigilanciaMayoresSalon"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:text="@string/camaras_vigilancia_mayores_activa"
+                                    android:textColor="@color/white"
+                                    android:textSize="10sp"
+                                    android:textStyle="bold"
+                                    android:visibility="gone"
+                                    tools:visibility="visible" />
+
+                                <TextView
+                                    android:id="@+id/tvAlertaInactividadSalon"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:text="@string/camaras_alerta_inactividad"
+                                    android:textColor="@color/white"
+                                    android:textSize="10sp"
+                                    android:textStyle="bold"
+                                    android:visibility="gone"
+                                    tools:visibility="visible" />
+
+                                <TextView
+                                    android:id="@+id/tvActividadDetectadaSalon"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:text="@string/camaras_actividad_detectada"
+                                    android:textColor="@color/white"
+                                    android:textSize="10sp"
+                                    android:visibility="gone"
+                                    tools:visibility="visible" />
+                            </LinearLayout>
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_4"
+                            android:gravity="center"
+                            android:text="@string/camaras_etiqueta_salon"
+                            android:textColor="@color/safecare_primary"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvEstadoSensorSalon"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_4"
+                            android:gravity="center"
+                            android:text="@string/camaras_estado_salon_reposo"
+                            android:textColor="@color/safecare_text_secondary"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/tarjetaCamaraCocina"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_6"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="@color/safecare_surface_tint"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="3dp"
+                    app:strokeColor="@color/safecare_stroke"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/margin_8">
+
+                        <FrameLayout
+                            android:id="@+id/contenedorVistaCocina"
+                            android:layout_width="match_parent"
+                            android:layout_height="120dp"
+                            android:background="@drawable/fondo_vista_video_demo">
+
+                            <ImageView
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_gravity="center"
+                                android:contentDescription="@string/camaras_desc_reproducir"
+                                android:src="@drawable/ic_reproducir_central" />
+
+                            <TextView
+                                android:id="@+id/tvAtencionAlertaCocina"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="top"
+                                android:background="@color/safecare_alerta"
+                                android:gravity="center"
+                                android:paddingVertical="3dp"
+                                android:text="@string/camaras_atencion_alerta_activa"
+                                android:textColor="@color/white"
+                                android:textSize="9sp"
+                                android:textStyle="bold"
+                                android:visibility="gone"
+                                tools:visibility="visible" />
+
+                            <TextView
+                                android:id="@+id/badgeEnVivoCocina"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="top|start"
+                                android:layout_margin="@dimen/margin_4"
+                                android:background="@drawable/fondo_badge_en_vivo"
+                                android:paddingHorizontal="6dp"
+                                android:paddingVertical="2dp"
+                                android:text="@string/camaras_badge_en_vivo"
+                                android:textColor="@color/safecare_exito"
+                                android:textSize="9sp"
+                                android:textStyle="bold" />
+
+                            <LinearLayout
+                                android:id="@+id/overlayAlertasCocina"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom"
+                                android:background="@color/safecare_overlay_camara"
+                                android:orientation="vertical"
+                                android:padding="@dimen/margin_4"
+                                android:visibility="gone"
+                                tools:visibility="visible">
+
+                                <TextView
+                                    android:id="@+id/tvVigilanciaMayoresCocina"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/camaras_vigilancia_mayores_activa"
+                                    android:textColor="@color/white"
+                                    android:textSize="10sp"
+                                    android:textStyle="bold"
+                                    android:visibility="gone"
+                                    tools:visibility="visible" />
+
+                                <TextView
+                                    android:id="@+id/tvAlertaMovimientoCocina"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:text="@string/camaras_alerta_movimiento"
+                                    android:textColor="@color/white"
+                                    android:textSize="10sp"
+                                    android:textStyle="bold"
+                                    android:visibility="gone"
+                                    tools:visibility="visible" />
+
+                                <TextView
+                                    android:id="@+id/tvFiltroMascotasCocina"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:text="@string/camaras_filtro_mascotas_activo"
+                                    android:textColor="@color/white"
+                                    android:textSize="9sp"
+                                    android:visibility="gone"
+                                    tools:visibility="visible" />
+
+                                <TextView
+                                    android:id="@+id/tvAlertaInactividadCocina"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:text="@string/camaras_alerta_inactividad"
+                                    android:textColor="@color/white"
+                                    android:textSize="10sp"
+                                    android:textStyle="bold"
+                                    android:visibility="gone"
+                                    tools:visibility="visible" />
+
+                                <TextView
+                                    android:id="@+id/tvActividadDetectadaCocina"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="2dp"
+                                    android:text="@string/camaras_actividad_detectada"
+                                    android:textColor="@color/white"
+                                    android:textSize="10sp"
+                                    android:visibility="gone"
+                                    tools:visibility="visible" />
+                            </LinearLayout>
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_4"
+                            android:gravity="center"
+                            android:text="@string/camaras_etiqueta_cocina"
+                            android:textColor="@color/safecare_primary"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvEstadoSensorCocina"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_4"
+                            android:gravity="center"
+                            android:text="@string/camaras_estado_cocina_reposo"
+                            android:textColor="@color/safecare_text_secondary"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</FrameLayout>

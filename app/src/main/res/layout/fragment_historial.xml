@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_app_screen"
+    tools:context=".ui.HistorialFragment">
+
+    <!-- NestedScrollView: en horizontal la cabecera no debe aplastar la lista (layout_weight=0). -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollHistorial"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:paddingStart="@dimen/margin_16"
+        android:paddingTop="@dimen/margin_16"
+        android:paddingEnd="@dimen/margin_16"
+        android:paddingBottom="@dimen/margin_16"
+        android:scrollbars="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/cabecera_btn_perfil_tamano"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:letterSpacing="0.02"
+                        android:text="@string/historial_titulo"
+                        android:textColor="@color/safecare_primary"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_4"
+                        android:text="@string/historial_subtitulo"
+                        android:textColor="@color/safecare_text_secondary"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnIconoPerfil"
+                    style="@style/Widget.SafeCare.Button.PerfilCabecera"
+                    android:layout_width="@dimen/cabecera_btn_perfil_tamano"
+                    android:layout_height="@dimen/cabecera_btn_perfil_tamano"
+                    android:contentDescription="@string/desc_icono_perfil"
+                    app:icon="@drawable/ic_cuenta_usuario_perfil"
+                    app:iconGravity="textStart" />
+            </LinearLayout>
+
+            <!-- Contadores rápidos por tipo de evento -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_16"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_4"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="@color/safecare_tint_alerta"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="3dp"
+                    app:strokeColor="@color/safecare_evento_alerta"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="@dimen/margin_8">
+
+                        <TextView
+                            android:id="@+id/tvContadorAlarmas"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/safecare_evento_alerta"
+                            android:textSize="22sp"
+                            android:textStyle="bold"
+                            tools:text="3" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_4"
+                            android:text="@string/historial_contador_alarmas"
+                            android:textColor="@color/safecare_text_secondary"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_4"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="@color/safecare_tint_panico"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="3dp"
+                    app:strokeColor="@color/safecare_panico"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="@dimen/margin_8">
+
+                        <TextView
+                            android:id="@+id/tvContadorPanicos"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/safecare_panico"
+                            android:textSize="22sp"
+                            android:textStyle="bold"
+                            tools:text="1" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_4"
+                            android:text="@string/historial_contador_panicos"
+                            android:textColor="@color/safecare_text_secondary"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_4"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="@color/safecare_tint_info"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="3dp"
+                    app:strokeColor="@color/safecare_evento_info"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="@dimen/margin_8">
+
+                        <TextView
+                            android:id="@+id/tvContadorSensores"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/safecare_evento_info"
+                            android:textSize="22sp"
+                            android:textStyle="bold"
+                            tools:text="5" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_4"
+                            android:text="@string/historial_contador_sensores"
+                            android:textColor="@color/safecare_text_secondary"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_4"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="@color/safecare_tint_sistema"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="3dp"
+                    app:strokeColor="@color/safecare_evento_sistema"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="@dimen/margin_8">
+
+                        <TextView
+                            android:id="@+id/tvContadorSistema"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/safecare_evento_sistema"
+                            android:textSize="22sp"
+                            android:textStyle="bold"
+                            tools:text="2" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_4"
+                            android:text="@string/historial_contador_sistema"
+                            android:textColor="@color/safecare_text_secondary"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_12"
+                android:clipToPadding="false"
+                android:scrollbars="none">
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/grupoFiltrosHistorial"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:selectionRequired="true"
+                    app:singleSelection="true">
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipFiltroTodos"
+                        style="@style/Widget.SafeCare.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="@string/historial_filtro_todos" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipFiltroAlarmas"
+                        style="@style/Widget.SafeCare.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/historial_contador_alarmas" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipFiltroPanicos"
+                        style="@style/Widget.SafeCare.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/historial_contador_panicos" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipFiltroSensores"
+                        style="@style/Widget.SafeCare.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/historial_contador_sensores" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipFiltroSistema"
+                        style="@style/Widget.SafeCare.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/historial_contador_sistema" />
+                </com.google.android.material.chip.ChipGroup>
+            </HorizontalScrollView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/tarjetaCuidadoMayoresHistorial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_12"
+                android:visibility="gone"
+                app:cardBackgroundColor="@color/safecare_primary_container"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="3dp"
+                app:strokeColor="@color/safecare_stroke"
+                app:strokeWidth="1dp"
+                tools:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:minHeight="88dp"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/margin_16">
+
+                    <ImageView
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:contentDescription="@null"
+                        android:src="@drawable/ic_reloj_inactividad"
+                        app:tint="@color/safecare_primary" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_16"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/ajustes_modo_mayores_titulo"
+                            android:textColor="@color/safecare_primary"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvDetalleActividadMayores"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_4"
+                            android:text="@string/historial_mayores_vigilando"
+                            android:textColor="@color/safecare_exito"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_16"
+                android:letterSpacing="0.02"
+                android:text="@string/historial_seccion_actividad"
+                android:textColor="@color/safecare_primary"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_8"
+                app:cardBackgroundColor="@color/safecare_surface"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="6dp"
+                app:strokeColor="@color/safecare_stroke"
+                app:strokeWidth="1dp">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/listaEventosRecientes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:nestedScrollingEnabled="false"
+                    android:overScrollMode="never"
+                    android:paddingStart="@dimen/margin_12"
+                    android:paddingTop="@dimen/margin_8"
+                    android:paddingEnd="@dimen/margin_12"
+                    android:paddingBottom="@dimen/margin_12"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="4"
+                    tools:listitem="@layout/item_evento_historial" />
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</FrameLayout>

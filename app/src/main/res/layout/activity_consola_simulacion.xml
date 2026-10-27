@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/contenedorPrincipalConsolaSimulacion"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_app_screen"
+    tools:context=".ui.ConsolaSimulacionActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorSurface">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/barraHerramientasConsolaSimulacion"
+            style="@style/Widget.Material3.Toolbar.Surface"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:navigationContentDescription="@string/perfil_desc_volver"
+            app:navigationIcon="@drawable/ic_navegacion_atras"
+            app:navigationIconTint="@color/safecare_primary"
+            app:title="@string/consola_simulacion_titulo"
+            app:titleTextColor="@color/safecare_primary" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:padding="@dimen/margin_16"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/margin_24">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/consola_simulacion_subtitulo"
+                android:textColor="@color/safecare_text_secondary"
+                android:textSize="14sp" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_16"
+                app:cardBackgroundColor="@color/safecare_surface"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:strokeColor="@color/safecare_divider"
+                app:strokeWidth="0.5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/margin_16">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/consola_simulacion_seccion_sensores"
+                        android:textColor="@color/safecare_primary"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_12"
+                        android:gravity="center_vertical"
+                        android:minHeight="56dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/fondo_icono_ajuste_tonal"
+                            android:contentDescription="@null"
+                            android:padding="8dp"
+                            android:src="@drawable/ic_puerta_cerradura"
+                            app:tint="@color/safecare_primary" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_12"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/consola_simulacion_puerta_titulo"
+                                android:textColor="@color/safecare_primary"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/margin_4"
+                                android:text="@string/consola_simulacion_puerta_subtitulo"
+                                android:textColor="@color/safecare_text_secondary"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                        <com.google.android.material.materialswitch.MaterialSwitch
+                            android:id="@+id/switchSimularPuerta"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_8" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_8"
+                        android:gravity="center_vertical"
+                        android:minHeight="56dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/fondo_icono_ajuste_tonal"
+                            android:contentDescription="@null"
+                            android:padding="8dp"
+                            android:src="@drawable/ic_sensor_movimiento"
+                            app:tint="@color/safecare_primary" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_12"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/consola_simulacion_movimiento_salon_titulo"
+                                android:textColor="@color/safecare_primary"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/margin_4"
+                                android:text="@string/consola_simulacion_movimiento_salon_subtitulo"
+                                android:textColor="@color/safecare_text_secondary"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                        <com.google.android.material.materialswitch.MaterialSwitch
+                            android:id="@+id/switchSimularMovimientoSalon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_8" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_8"
+                        android:gravity="center_vertical"
+                        android:minHeight="56dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/fondo_icono_ajuste_tonal"
+                            android:contentDescription="@null"
+                            android:padding="8dp"
+                            android:src="@drawable/ic_sensor_movimiento"
+                            app:tint="@color/safecare_primary" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_12"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/consola_simulacion_movimiento_cocina_titulo"
+                                android:textColor="@color/safecare_primary"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/margin_4"
+                                android:text="@string/consola_simulacion_movimiento_cocina_subtitulo"
+                                android:textColor="@color/safecare_text_secondary"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                        <com.google.android.material.materialswitch.MaterialSwitch
+                            android:id="@+id/switchSimularMovimientoCocina"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_12"
+                app:cardBackgroundColor="@color/safecare_surface"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:strokeColor="@color/safecare_divider"
+                app:strokeWidth="0.5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/margin_16">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/consola_simulacion_seccion_escenarios"
+                        android:textColor="@color/safecare_primary"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_4"
+                        android:text="@string/consola_simulacion_escenarios_subtitulo"
+                        android:textColor="@color/safecare_text_secondary"
+                        android:textSize="13sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_12"
+                        android:gravity="center_vertical"
+                        android:minHeight="56dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/fondo_icono_ajuste_tonal"
+                            android:contentDescription="@null"
+                            android:padding="8dp"
+                            android:src="@drawable/ic_reloj_inactividad"
+                            app:tint="@color/safecare_primary" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_12"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/consola_simulacion_inactividad_salon_titulo"
+                                android:textColor="@color/safecare_primary"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/margin_4"
+                                android:text="@string/consola_simulacion_inactividad_salon_subtitulo"
+                                android:textColor="@color/safecare_text_secondary"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                        <com.google.android.material.materialswitch.MaterialSwitch
+                            android:id="@+id/switchSimularInactividadSalon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_8" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_8"
+                        android:gravity="center_vertical"
+                        android:minHeight="56dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/fondo_icono_ajuste_tonal"
+                            android:contentDescription="@null"
+                            android:padding="8dp"
+                            android:src="@drawable/ic_reloj_inactividad"
+                            app:tint="@color/safecare_primary" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_12"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/consola_simulacion_inactividad_cocina_titulo"
+                                android:textColor="@color/safecare_primary"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/margin_4"
+                                android:text="@string/consola_simulacion_inactividad_cocina_subtitulo"
+                                android:textColor="@color/safecare_text_secondary"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                        <com.google.android.material.materialswitch.MaterialSwitch
+                            android:id="@+id/switchSimularInactividadCocina"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnRestablecerSensores"
+                        style="@style/Widget.Material3.Button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_8"
+                        android:minHeight="52dp"
+                        android:text="@string/consola_simulacion_btn_restablecer"
+                        android:textAllCaps="false"
+                        app:cornerRadius="16dp"
+                        app:icon="@drawable/ic_desactivar_alarma"
+                        app:iconGravity="textStart" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_12"
+                app:cardBackgroundColor="@color/safecare_surface"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:strokeColor="@color/safecare_divider"
+                app:strokeWidth="0.5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/margin_16">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/consola_simulacion_seccion_camara"
+                        android:textColor="@color/safecare_primary"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_4"
+                        android:text="@string/consola_simulacion_camara_subtitulo"
+                        android:textColor="@color/safecare_text_secondary"
+                        android:textSize="13sp" />
+
+                    <androidx.camera.view.PreviewView
+                        android:id="@+id/vistaPreviaCamaraEsp32"
+                        android:layout_width="match_parent"
+                        android:layout_height="140dp"
+                        android:layout_marginTop="@dimen/margin_12"
+                        android:background="@color/safecare_terminal_fondo" />
+
+                    <TextView
+                        android:id="@+id/tvEstadoTransmisionCamara"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_8"
+                        android:text="@string/consola_simulacion_camara_inactiva"
+                        android:textColor="@color/safecare_text_secondary"
+                        android:textSize="12sp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnTransmisionCamaraEsp32"
+                        style="@style/Widget.Material3.Button.TonalButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_8"
+                        android:minHeight="52dp"
+                        android:text="@string/consola_simulacion_btn_iniciar_camara"
+                        android:textAllCaps="false"
+                        app:cornerRadius="16dp"
+                        app:icon="@android:drawable/ic_menu_camera"
+                        app:iconGravity="textStart" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_12"
+                app:cardBackgroundColor="@color/safecare_surface"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="1dp"
+                app:strokeColor="@color/safecare_divider"
+                app:strokeWidth="0.5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/margin_16">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/consola_simulacion_ultimo_evento"
+                        android:textColor="@color/safecare_text_secondary"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvUltimoEventoSimulacion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_4"
+                        android:textColor="@color/safecare_primary"
+                        android:textSize="14sp"
+                        tools:text="Simulación ESP32: puerta principal ABIERTA" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_24"
+                android:text="@string/consola_simulacion_seccion_telemetria"
+                android:textColor="@color/safecare_primary"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_8"
+                app:cardBackgroundColor="@color/safecare_terminal_fondo"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="0dp"
+                app:strokeColor="@color/safecare_terminal_borde"
+                app:strokeWidth="1dp">
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fillViewport="true"
+                    android:padding="@dimen/margin_12"
+                    android:scrollbars="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvJsonTelemetria"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
+                        android:lineSpacingExtra="2dp"
+                        android:text="@string/consola_simulacion_telemetria_esperando"
+                        android:textColor="@color/safecare_terminal_texto"
+                        android:textIsSelectable="true"
+                        android:textSize="12sp"
+                        tools:text="{&#10;  &quot;rutaFirebase&quot;: &quot;systems/abc123&quot;,&#10;  &quot;sensorPuerta&quot;: true&#10;}" />
+                </HorizontalScrollView>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

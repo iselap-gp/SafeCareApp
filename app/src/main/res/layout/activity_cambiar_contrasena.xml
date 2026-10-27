@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/contenedorPrincipalCambiarContrasena"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/safecare_background"
+    tools:context=".ui.CambiarContrasenaActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorSurface">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/barraHerramientasCambiarContrasena"
+            style="@style/Widget.Material3.Toolbar.Surface"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:navigationContentDescription="@string/perfil_desc_volver"
+            app:navigationIcon="@drawable/ic_navegacion_atras"
+            app:navigationIconTint="@color/safecare_primary"
+            app:title="@string/cambiar_contrasena_titulo"
+            app:titleTextColor="@color/safecare_primary" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/margin_16"
+        android:paddingTop="@dimen/margin_16"
+        android:paddingEnd="@dimen/margin_16"
+        android:paddingBottom="@dimen/margin_24"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/safecare_surface"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="3dp"
+            app:strokeColor="@color/safecare_divider"
+            app:strokeWidth="0.5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/margin_16">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cambiar_contrasena_subtitulo"
+                    android:textColor="@color/safecare_text_secondary"
+                    android:textSize="14sp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutContrasenaActual"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_16"
+                    android:hint="@string/cambiar_contrasena_hint_actual"
+                    app:endIconMode="password_toggle">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etContrasenaActual"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints="password"
+                        android:inputType="textPassword"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutContrasenaNueva"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_12"
+                    android:hint="@string/cambiar_contrasena_hint_nueva"
+                    app:endIconMode="password_toggle">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etContrasenaNueva"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints="newPassword"
+                        android:inputType="textPassword"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layoutContrasenaRepetir"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_12"
+                    android:hint="@string/cambiar_contrasena_hint_repetir"
+                    app:endIconMode="password_toggle">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etContrasenaRepetir"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints="newPassword"
+                        android:inputType="textPassword"
+                        android:maxLines="1" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnGuardarContrasena"
+                    style="@style/Widget.Material3.Button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_16"
+                    android:minHeight="52dp"
+                    android:text="@string/cambiar_contrasena_boton_guardar"
+                    android:textAllCaps="false"
+                    app:cornerRadius="20dp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

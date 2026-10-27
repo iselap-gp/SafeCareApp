@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "1234567890",
+    "firebase_url": "https://TU_PROYECTO-default-rtdb.firebaseio.com",
+    "project_id": "safecare-demo",
+    "storage_bucket": "safecare-demo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1234567890:android:abcdef123456",
+        "android_client_info": {
+          "package_name": "igp.pmpm.safecare"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSy_TU_API_KEY_AQUI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

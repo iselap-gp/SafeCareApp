@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_app_screen"
+    tools:context=".ui.AjustesFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:padding="@dimen/margin_16">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/margin_24">
+
+            <!-- Cabecera -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ajustes_titulo_pantalla"
+                    android:textColor="@color/safecare_primary"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_4"
+                    android:text="@string/ajustes_subtitulo"
+                    android:textColor="@color/safecare_text_secondary"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <!-- Sección 1: Seguridad y Cuenta -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_24"
+                android:letterSpacing="0.04"
+                android:text="@string/ajustes_seccion_seguridad_cuenta"
+                android:textAllCaps="true"
+                android:textColor="@color/safecare_primary"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_8"
+                app:cardBackgroundColor="@color/safecare_surface_tint"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="3dp"
+                app:strokeColor="@color/safecare_stroke"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingVertical="@dimen/margin_4">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/filaInformacionCuenta"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:drawablePadding="@dimen/margin_16"
+                        android:gravity="center_vertical"
+                        android:minHeight="56dp"
+                        android:paddingStart="@dimen/margin_16"
+                        android:paddingEnd="@dimen/margin_16"
+                        android:text="@string/ajustes_opcion_informacion_cuenta"
+                        android:textColor="@color/safecare_primary"
+                        android:textSize="16sp"
+                        app:drawableStartCompat="@drawable/ic_cuenta_usuario_perfil"
+                        app:drawableTint="@color/safecare_primary" />
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_16" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/filaCambiarContrasena"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:drawablePadding="@dimen/margin_16"
+                        android:gravity="center_vertical"
+                        android:minHeight="56dp"
+                        android:paddingStart="@dimen/margin_16"
+                        android:paddingEnd="@dimen/margin_16"
+                        android:text="@string/ajustes_opcion_contrasena"
+                        android:textColor="@color/safecare_primary"
+                        android:textSize="16sp"
+                        app:drawableStartCompat="@android:drawable/ic_lock_lock"
+                        app:drawableTint="@color/safecare_primary" />
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_16" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/filaContactoEmergencia"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:drawablePadding="@dimen/margin_16"
+                        android:gravity="center_vertical"
+                        android:minHeight="56dp"
+                        android:paddingStart="@dimen/margin_16"
+                        android:paddingEnd="@dimen/margin_16"
+                        android:text="@string/ajustes_opcion_contacto_emergencia"
+                        android:textColor="@color/safecare_primary"
+                        android:textSize="16sp"
+                        app:drawableStartCompat="@android:drawable/ic_menu_call"
+                        app:drawableTint="@color/safecare_primary" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Sección 2: Dispositivos y Sistema -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_24"
+                android:letterSpacing="0.04"
+                android:text="@string/ajustes_seccion_sistema"
+                android:textAllCaps="true"
+                android:textColor="@color/safecare_primary"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_8"
+                app:cardBackgroundColor="@color/safecare_surface_tint"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="3dp"
+                app:strokeColor="@color/safecare_stroke"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingVertical="@dimen/margin_4">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/filaSensibilidadSensor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:drawablePadding="@dimen/margin_16"
+                        android:focusable="true"
+                        android:gravity="center_vertical"
+                        android:minHeight="56dp"
+                        android:paddingStart="@dimen/margin_16"
+                        android:paddingEnd="@dimen/margin_16"
+                        android:text="@string/ajustes_opcion_consola_simulacion"
+                        android:textColor="@color/safecare_primary"
+                        android:textSize="16sp"
+                        app:drawableStartCompat="@drawable/ic_sensor_movimiento"
+                        app:drawableTint="@color/safecare_primary" />
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_16" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/btnConfigurarDispositivosEsp32"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:drawablePadding="@dimen/margin_16"
+                        android:focusable="true"
+                        android:gravity="center_vertical"
+                        android:minHeight="56dp"
+                        android:paddingStart="@dimen/margin_16"
+                        android:paddingEnd="@dimen/margin_16"
+                        android:text="@string/ajustes_boton_configurar_esp32"
+                        android:textColor="@color/safecare_primary"
+                        android:textSize="16sp"
+                        app:drawableStartCompat="@drawable/ic_dispositivo_esp32"
+                        app:drawableTint="@color/safecare_primary" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Sección 3: Protección Familiar -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_24"
+                android:letterSpacing="0.04"
+                android:text="@string/ajustes_seccion_proteccion_familiar"
+                android:textAllCaps="true"
+                android:textColor="@color/safecare_primary"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_8"
+                app:cardBackgroundColor="@color/safecare_surface_tint"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="3dp"
+                app:strokeColor="@color/safecare_stroke"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingVertical="@dimen/margin_4">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:minHeight="72dp"
+                        android:orientation="horizontal"
+                        android:paddingStart="@dimen/margin_16"
+                        android:paddingEnd="@dimen/margin_8">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/fondo_icono_ajuste_tonal"
+                            android:contentDescription="@null"
+                            android:padding="8dp"
+                            android:src="@drawable/ic_reloj_inactividad"
+                            app:tint="@color/safecare_primary" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_12"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/ajustes_modo_mayores_titulo"
+                                android:textColor="@color/safecare_primary"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/margin_4"
+                                android:text="@string/ajustes_modo_mayores_subtitulo"
+                                android:textColor="@color/safecare_text_secondary"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                        <com.google.android.material.materialswitch.MaterialSwitch
+                            android:id="@+id/switchModoMayores"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="68dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:minHeight="72dp"
+                        android:orientation="horizontal"
+                        android:paddingStart="@dimen/margin_16"
+                        android:paddingEnd="@dimen/margin_8">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/fondo_icono_ajuste_tonal"
+                            android:contentDescription="@null"
+                            android:padding="8dp"
+                            android:src="@drawable/ic_modo_mascotas"
+                            app:tint="@color/safecare_primary" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_12"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/ajustes_modo_mascotas_titulo"
+                                android:textColor="@color/safecare_primary"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/margin_4"
+                                android:text="@string/ajustes_modo_mascotas_subtitulo"
+                                android:textColor="@color/safecare_text_secondary"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                        <com.google.android.material.materialswitch.MaterialSwitch
+                            android:id="@+id/switchModoMascotas"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="68dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:minHeight="72dp"
+                        android:orientation="horizontal"
+                        android:paddingStart="@dimen/margin_16"
+                        android:paddingEnd="@dimen/margin_8">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/fondo_icono_ajuste_tonal"
+                            android:contentDescription="@null"
+                            android:padding="8dp"
+                            android:src="@drawable/ic_escudo_seguridad"
+                            app:tint="@color/safecare_primary" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_12"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/ajustes_modo_ninos_titulo"
+                                android:textColor="@color/safecare_primary"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/margin_4"
+                                android:text="@string/ajustes_modo_ninos_subtitulo"
+                                android:textColor="@color/safecare_text_secondary"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+
+                        <com.google.android.material.materialswitch.MaterialSwitch
+                            android:id="@+id/switchModoNinos"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCerrarSesionAjustes"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/margin_24"
+                android:minHeight="48dp"
+                android:paddingStart="@dimen/margin_24"
+                android:paddingEnd="@dimen/margin_24"
+                android:text="@string/ajustes_cerrar_sesion"
+                android:textAllCaps="false"
+                android:textColor="@color/safecare_alerta"
+                app:cornerRadius="24dp"
+                app:icon="@drawable/ic_cerrar_sesion_salir"
+                app:iconGravity="textStart"
+                app:iconTint="@color/safecare_alerta"
+                app:strokeColor="@color/safecare_alerta" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</FrameLayout>

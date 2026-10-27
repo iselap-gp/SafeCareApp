@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_auth_screen"
+    tools:context="igp.pmpm.safecare.ui.LoginActivity">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollLogin"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:overScrollMode="ifContentScrolls"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="400dp"
+            android:paddingHorizontal="@dimen/auth_margin_horizontal"
+            android:paddingTop="@dimen/auth_margin_top"
+            android:paddingBottom="@dimen/margin_32">
+
+            <ImageView
+                android:id="@+id/imvLogoSafeCareLogin"
+                android:layout_width="128dp"
+                android:layout_height="128dp"
+                android:contentDescription="@string/auth_logo_desc"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_safecare_launcher_full"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvLoginTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_16"
+                android:gravity="center"
+                android:text="@string/auth_login_title"
+                android:textColor="@color/safecare_primary"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imvLogoSafeCareLogin" />
+
+            <TextView
+                android:id="@+id/tvLoginSubtitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_8"
+                android:gravity="center"
+                android:text="@string/auth_login_subtitle"
+                android:textColor="@color/safecare_text_secondary"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvLoginTitle" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardLogin"
+                style="@style/Widget.SafeCare.AuthCard"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_32"
+                app:cardBackgroundColor="@color/safecare_surface"
+                app:cardCornerRadius="@dimen/auth_corner_radius"
+                app:cardElevation="@dimen/auth_card_elevation"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvLoginSubtitle"
+                app:layout_constraintWidth_max="420dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/margin_24">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilCorreo"
+                        style="@style/Widget.SafeCare.TextField"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/hint_email"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:startIconDrawable="@android:drawable/sym_action_email"
+                        app:startIconTint="@color/safecare_primary">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etCorreo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:autofillHints="emailAddress"
+                            android:imeOptions="actionNext"
+                            android:inputType="textEmailAddress" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilContrasena"
+                        style="@style/Widget.SafeCare.TextField"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/auth_field_gap"
+                        android:hint="@string/hint_password"
+                        app:endIconMode="password_toggle"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tilCorreo"
+                        app:startIconDrawable="@android:drawable/ic_lock_lock"
+                        app:startIconTint="@color/safecare_primary">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etContrasena"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:autofillHints="password"
+                            android:imeOptions="actionDone"
+                            android:inputType="textPassword" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnLogin"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_24"
+                        android:minHeight="@dimen/min_touch"
+                        android:text="@string/btn_login"
+                        android:textAllCaps="false"
+                        app:backgroundTint="@color/safecare_primary"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tilContrasena" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnIrARegistro"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_16"
+                android:text="@string/auth_go_register"
+                android:textAllCaps="false"
+                android:textColor="@color/safecare_primary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cardLogin" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/progressLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="gone"
+        app:indicatorColor="@color/safecare_primary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:trackThickness="3dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="auth_margin_horizontal">24dp</dimen>
+    <dimen name="auth_margin_top">32dp</dimen>
+    <dimen name="auth_field_gap">16dp</dimen>
+    <dimen name="auth_card_elevation">6dp</dimen>
+    <dimen name="auth_corner_radius">16dp</dimen>
+    <dimen name="margin_4">4dp</dimen>
+    <dimen name="margin_6">6dp</dimen>
+    <dimen name="margin_8">8dp</dimen>
+    <dimen name="margin_12">12dp</dimen>
+    <dimen name="margin_16">16dp</dimen>
+    <dimen name="margin_24">24dp</dimen>
+    <dimen name="margin_32">32dp</dimen>
+    <dimen name="panel_hero_altura">120dp</dimen>
+    <dimen name="min_touch">48dp</dimen>
+    <dimen name="cabecera_btn_perfil_tamano">56dp</dimen>
+    <dimen name="cabecera_btn_perfil_icono">32dp</dimen>
+    <dimen name="contacto_destino_borde_seleccion">2dp</dimen>
+    <dimen name="contacto_destino_borde_normal">1dp</dimen>
+</resources>

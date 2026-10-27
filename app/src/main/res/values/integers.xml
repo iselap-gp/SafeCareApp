@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Columnas estilo rejilla Kanban: móvil 2; ver carpeta values-w600dp / values-sw720dp -->
+    <integer name="contactos_grid_columnas">2</integer>
+</resources>

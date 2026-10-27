@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/contenedorPanelControl"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_app_screen"
+    tools:context=".MainActivity">
+
+    <!--
+    [FragmentContainerView]: el [FragmentManager] inyecta aquí [PanelFragment], [CamarasFragment] o
+    [AjustesFragment] sin recrear toda la Activity, manteniendo la barra inferior fija.
+    -->
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/contenedorFragmentos"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/barraNavegacionInferior"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/barraNavegacionInferior"
+        style="@style/Widget.SafeCare.BottomNavigationView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:elevation="12dp"
+        app:itemActiveIndicatorStyle="@style/Widget.SafeCare.BottomNav.ActiveIndicator"
+        app:itemIconSize="26dp"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/menu_navegacion_inferior" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

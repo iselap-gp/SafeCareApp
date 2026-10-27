@@ -1,0 +1,60 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Base.Theme.SafeCare" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/safecare_primary</item>
+        <item name="colorPrimaryVariant">@color/safecare_primary_variant</item>
+        <item name="colorOnPrimary">@color/safecare_on_primary</item>
+        <item name="colorPrimaryContainer">@color/safecare_primary_container</item>
+        <item name="colorOnPrimaryContainer">@color/safecare_on_primary_container</item>
+        <item name="colorSecondary">@color/safecare_primary_light</item>
+        <item name="colorSurface">@color/safecare_surface</item>
+        <item name="android:colorBackground">@color/safecare_background</item>
+        <item name="android:statusBarColor">@color/safecare_status_bar</item>
+        <item name="android:navigationBarColor">@color/safecare_nav_surface</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+
+    <style name="Theme.SafeCare" parent="Base.Theme.SafeCare" />
+
+    <style name="Widget.SafeCare.AuthCard" parent="Widget.Material3.CardView.Elevated" />
+
+    <style name="Widget.SafeCare.TextField" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/safecare_primary</item>
+        <item name="hintTextColor">@color/safecare_text_secondary</item>
+    </style>
+
+    <style name="Widget.SafeCare.Chip.Filter" parent="Widget.Material3.Chip.Filter">
+        <item name="chipBackgroundColor">@color/chip_background_color</item>
+        <item name="android:textColor">@color/chip_text_color</item>
+        <item name="checkedIconTint">@color/chip_checked_icon_tint</item>
+        <item name="chipStrokeColor">@color/safecare_stroke</item>
+        <item name="chipStrokeWidth">1dp</item>
+    </style>
+
+    <style name="Widget.SafeCare.Button.PerfilCabecera" parent="Widget.Material3.Button.IconButton">
+        <item name="iconTint">@color/safecare_primary</item>
+        <item name="iconSize">@dimen/cabecera_btn_perfil_icono</item>
+        <item name="iconPadding">0dp</item>
+    </style>
+
+    <style name="TextAppearance.SafeCare.BottomNav.Active" parent="TextAppearance.Material3.LabelMedium">
+        <item name="android:textColor">@color/safecare_nav_item_activo</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.SafeCare.BottomNav.Inactive" parent="TextAppearance.Material3.LabelMedium">
+        <item name="android:textColor">@color/safecare_nav_item_inactivo</item>
+    </style>
+
+    <style name="Widget.SafeCare.BottomNavigationView" parent="Widget.Material3.BottomNavigationView">
+        <item name="android:background">@color/safecare_nav_surface</item>
+        <item name="itemIconTint">@color/bottom_nav_item_color</item>
+        <item name="itemTextColor">@color/bottom_nav_item_color</item>
+        <item name="itemRippleColor">@color/safecare_nav_indicator</item>
+        <item name="itemTextAppearanceActive">@style/TextAppearance.SafeCare.BottomNav.Active</item>
+        <item name="itemTextAppearanceInactive">@style/TextAppearance.SafeCare.BottomNav.Inactive</item>
+    </style>
+
+    <style name="Widget.SafeCare.BottomNav.ActiveIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/safecare_nav_indicator</item>
+    </style>
+</resources>

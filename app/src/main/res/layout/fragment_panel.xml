@@ -1,0 +1,564 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_app_screen"
+    tools:context=".ui.PanelFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/contenidoDesplazable"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:paddingStart="@dimen/margin_16"
+        android:paddingTop="@dimen/margin_16"
+        android:paddingEnd="@dimen/margin_16"
+        android:paddingBottom="@dimen/margin_16">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Cabecera: marca + perfil -->
+            <LinearLayout
+                android:id="@+id/franjaSuperiorAplicacion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/cabecera_btn_perfil_tamano"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imvLogoMarcaPanel"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginEnd="@dimen/margin_8"
+                    android:contentDescription="@string/auth_logo_desc"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_safecare_foreground" />
+
+                <TextView
+                    android:id="@+id/tvNombreMarcaSafeCare"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:letterSpacing="0.02"
+                    android:text="@string/panel_titulo_app"
+                    android:textColor="@color/safecare_primary"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnIconoPerfil"
+                    style="@style/Widget.SafeCare.Button.PerfilCabecera"
+                    android:layout_width="@dimen/cabecera_btn_perfil_tamano"
+                    android:layout_height="@dimen/cabecera_btn_perfil_tamano"
+                    android:contentDescription="@string/desc_icono_perfil"
+                    app:icon="@drawable/ic_cuenta_usuario_perfil"
+                    app:iconGravity="textStart" />
+            </LinearLayout>
+
+            <!-- Tarjeta personal: saludo, fecha y clima -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/tarjetaCabeceraPersonal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_8"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="6dp"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_card_welcome"
+                    android:orientation="vertical"
+                    android:padding="@dimen/margin_16">
+
+                    <TextView
+                        android:id="@+id/tvBienvenidaConNombre"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        tools:text="Bienvenido de nuevo, Isela" />
+
+                    <TextView
+                        android:id="@+id/tvFechaHoy"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_4"
+                        android:textColor="@color/safecare_text_on_blue"
+                        android:textSize="14sp"
+                        tools:text="Sábado, 20 de junio de 2026" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_12"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/imagenClimaSimulado"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:contentDescription="@string/panel_clima_descripcion_icono"
+                            android:src="@drawable/ic_clima_sol"
+                            app:tint="@color/white"
+                            tools:ignore="ContentDescription" />
+
+                        <TextView
+                            android:id="@+id/tvClimaSimulado"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_12"
+                            android:layout_weight="1"
+                            android:textColor="@color/white"
+                            android:textSize="15sp"
+                            tools:text="Parcialmente nublado · 14 °C" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Hero Card: estado global + tiempo de protección -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/tarjetaEstadoGlobal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_12"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="6dp"
+                app:strokeWidth="0dp">
+
+                <FrameLayout
+                    android:id="@+id/contenedorFondoDegradadoEstado"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/gradient_cabecera_reposo"
+                    android:contentDescription="@string/desc_cabecera_estado"
+                    android:minHeight="@dimen/panel_hero_altura">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center_vertical"
+                        android:minHeight="@dimen/panel_hero_altura"
+                        android:orientation="horizontal"
+                        android:paddingStart="@dimen/margin_16"
+                        android:paddingTop="@dimen/margin_12"
+                        android:paddingEnd="@dimen/margin_16"
+                        android:paddingBottom="@dimen/margin_12">
+
+                        <ImageView
+                            android:id="@+id/imagenIconoEscudo"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:contentDescription="@null"
+                            android:importantForAccessibility="no"
+                            android:src="@drawable/ic_escudo_seguridad" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_12"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tvMensajeEstadoGlobal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:letterSpacing="0.02"
+                                android:text="@string/panel_hero_espera"
+                                android:textColor="@color/safecare_exito"
+                                android:textSize="15sp"
+                                android:textStyle="bold"
+                                tools:text="🛡️ SISTEMA PROTEGIDO · 2h 14m" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/btnDesactivarAlertaPanico"
+                                style="@style/Widget.Material3.Button"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/margin_8"
+                                android:background="@drawable/gradient_boton_desactivar"
+                                android:minHeight="40dp"
+                                android:text="@string/panel_btn_desactivar_alerta"
+                                android:textAllCaps="false"
+                                android:textColor="@color/white"
+                                android:textSize="13sp"
+                                android:visibility="gone"
+                                app:backgroundTint="@null"
+                                app:cornerRadius="20dp"
+                                app:icon="@drawable/ic_desactivar_alarma"
+                                app:iconGravity="textStart"
+                                app:iconPadding="@dimen/margin_4"
+                                app:iconSize="18dp"
+                                app:iconTint="@color/white"
+                                tools:visibility="visible" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </FrameLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Bloque unificado: modo Casa/Fuera + activar/desactivar -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/tarjetaControlesAlarma"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_12"
+                app:cardBackgroundColor="@color/safecare_surface_tint"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="4dp"
+                app:strokeColor="@color/safecare_stroke"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/margin_16">
+
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/grupoSelectorModo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center_horizontal"
+                        app:selectionRequired="true"
+                        app:singleSelection="true">
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chipModoCasa"
+                            style="@style/Widget.SafeCare.Chip.Filter"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:minWidth="140dp"
+                            android:checked="true"
+                            android:gravity="center"
+                            android:textAlignment="center"
+                            android:text="@string/modo_casa" />
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chipModoFuera"
+                            style="@style/Widget.SafeCare.Chip.Filter"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:minWidth="140dp"
+                            android:gravity="center"
+                            android:textAlignment="center"
+                            android:text="@string/modo_fuera" />
+                    </com.google.android.material.chip.ChipGroup>
+
+                    <LinearLayout
+                        android:id="@+id/filaControlesAlarmaRapida"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_12"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnActivarAlarma"
+                            android:layout_width="0dp"
+                            android:layout_height="88dp"
+                            android:layout_marginEnd="@dimen/margin_8"
+                            android:layout_weight="1"
+                            android:background="@drawable/gradient_boton_activar"
+                            android:gravity="center"
+                            android:letterSpacing="0.04"
+                            android:padding="8dp"
+                            android:text="@string/dashboard_activar"
+                            android:textAllCaps="true"
+                            android:textColor="@color/white"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            app:backgroundTint="@null"
+                            app:cornerRadius="44dp"
+                            app:icon="@drawable/ic_activar_alarma"
+                            app:iconGravity="textTop"
+                            app:iconPadding="6dp"
+                            app:iconSize="32dp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnDesactivarAlarma"
+                            android:layout_width="0dp"
+                            android:layout_height="88dp"
+                            android:layout_marginStart="@dimen/margin_8"
+                            android:layout_weight="1"
+                            android:background="@drawable/gradient_boton_desactivar"
+                            android:gravity="center"
+                            android:letterSpacing="0.04"
+                            android:padding="8dp"
+                            android:text="@string/dashboard_desactivar"
+                            android:textAllCaps="true"
+                            android:textColor="@color/white"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            app:backgroundTint="@null"
+                            app:cornerRadius="44dp"
+                            app:icon="@drawable/ic_desactivar_alarma"
+                            app:iconGravity="textTop"
+                            app:iconPadding="6dp"
+                            app:iconSize="32dp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Sensores compactos en una línea -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_12"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/tarjetaPuertaPrincipal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_4"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="@color/safecare_surface_tint"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="2dp"
+                    app:strokeColor="@color/safecare_stroke"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:minHeight="56dp"
+                        android:orientation="vertical"
+                        android:paddingHorizontal="@dimen/margin_12"
+                        android:paddingVertical="@dimen/margin_8">
+
+                        <TextView
+                            android:id="@+id/tvDetallePuerta"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/panel_resumen_puerta_cerrada"
+                            android:textColor="@color/safecare_primary"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            tools:text="Puerta: Cerrada" />
+
+                        <TextView
+                            android:id="@+id/tvAvisoControlInfantilPuerta"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_4"
+                            android:text="@string/panel_aviso_control_infantil_puerta"
+                            android:textColor="@color/safecare_alerta"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            android:visibility="gone"
+                            tools:visibility="visible" />
+
+                        <TextView
+                            android:id="@+id/tvAvisoPuertaAlarma"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_4"
+                            android:text="@string/panel_puerta_alarma_activa"
+                            android:textColor="@color/safecare_alerta"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            android:visibility="gone"
+                            tools:visibility="visible" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/tarjetaSensorMovimiento"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_4"
+                    android:layout_weight="1"
+                    app:cardBackgroundColor="@color/safecare_surface_tint"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="2dp"
+                    app:strokeColor="@color/safecare_stroke"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:minHeight="56dp"
+                        android:orientation="vertical"
+                        android:paddingHorizontal="@dimen/margin_12"
+                        android:paddingVertical="@dimen/margin_8">
+
+                        <TextView
+                            android:id="@+id/tvDetalleMovimiento"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/panel_resumen_movimiento_no"
+                            android:textColor="@color/safecare_primary"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            tools:text="Movimiento: No" />
+
+                        <TextView
+                            android:id="@+id/tvAvisoFiltroMascotas"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_4"
+                            android:text="@string/panel_filtro_mascotas_activo"
+                            android:textColor="@color/safecare_exito"
+                            android:textSize="10sp"
+                            android:visibility="gone"
+                            tools:visibility="visible" />
+
+                        <TextView
+                            android:id="@+id/tvAvisoModoCasaMovimiento"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_4"
+                            android:text="@string/panel_modo_casa_movimiento_info"
+                            android:textColor="@color/safecare_text_secondary"
+                            android:textSize="10sp"
+                            android:visibility="gone"
+                            tools:visibility="visible" />
+
+                        <TextView
+                            android:id="@+id/tvAvisoModoFueraMovimiento"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_4"
+                            android:text="@string/panel_modo_fuera_movimiento_alerta"
+                            android:textColor="@color/safecare_alerta"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            android:visibility="gone"
+                            tools:visibility="visible" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+
+            <!-- Accesos rápidos a otras pestañas -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_12"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/tarjetaAccesoCamaras"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_4"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardBackgroundColor="@color/safecare_primary_container"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="3dp"
+                    app:rippleColor="@color/safecare_stroke"
+                    app:strokeColor="@color/safecare_stroke"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:minHeight="52dp"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/margin_12">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:contentDescription="@null"
+                            android:src="@android:drawable/ic_menu_camera"
+                            app:tint="@color/safecare_primary" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_8"
+                            android:layout_weight="1"
+                            android:text="@string/panel_ver_camaras"
+                            android:textColor="@color/safecare_primary"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/tarjetaAccesoHistorial"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_4"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:cardBackgroundColor="@color/safecare_primary_container"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="3dp"
+                    app:rippleColor="@color/safecare_stroke"
+                    app:strokeColor="@color/safecare_stroke"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:minHeight="52dp"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/margin_12">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:contentDescription="@null"
+                            android:src="@android:drawable/ic_menu_recent_history"
+                            app:tint="@color/safecare_primary" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_8"
+                            android:layout_weight="1"
+                            android:text="@string/panel_ver_historial"
+                            android:textColor="@color/safecare_primary"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+
+            <!-- Botón de pánico -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAvisoEmergencia"
+                style="@style/Widget.Material3.Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_16"
+                android:background="@drawable/gradient_boton_panico"
+                android:minHeight="56dp"
+                android:paddingStart="@dimen/margin_16"
+                android:paddingEnd="@dimen/margin_16"
+                android:text="@string/dashboard_panico_extendido"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:backgroundTint="@null"
+                app:cornerRadius="24dp"
+                app:elevation="4dp" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</FrameLayout>

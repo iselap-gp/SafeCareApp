@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Fila horizontal: radio + avatar + texto completo + acciones alineadas a la derecha -->
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/margin_4"
+    android:layout_marginVertical="@dimen/margin_4"
+    app:cardBackgroundColor="@color/safecare_surface"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp"
+    app:strokeColor="@color/safecare_divider"
+    app:strokeWidth="0.5dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/min_touch"
+        android:padding="@dimen/margin_12">
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/radioDestinoEmergencia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/contacto_seleccionar_destino_desc"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <FrameLayout
+            android:id="@+id/contenedorAvatarInicial"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="@dimen/margin_4"
+            android:background="@drawable/fondo_avatar_contacto"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/radioDestinoEmergencia"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tvInicialAvatar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:text="C" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/contenedorTextoContacto"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_8"
+            android:layout_marginEnd="@dimen/margin_8"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/contenedorAccionesContacto"
+            app:layout_constraintStart_toEndOf="@id/contenedorAvatarInicial"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tvNombreContacto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/safecare_primary"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:text="María Pérez" />
+
+            <TextView
+                android:id="@+id/tvParentescoContacto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_4"
+                android:textColor="@color/safecare_text_secondary"
+                android:textSize="14sp"
+                tools:text="+34 600 123 456" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/contenedorAccionesContacto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLlamadaRapida"
+                style="@style/Widget.Material3.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/gradient_boton_llamada"
+                android:contentDescription="@string/contacto_llamada_desc"
+                android:minHeight="40dp"
+                android:minWidth="0dp"
+                android:paddingStart="@dimen/margin_12"
+                android:paddingEnd="@dimen/margin_12"
+                android:text="@string/contacto_boton_llamar"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="13sp"
+                app:backgroundTint="@null"
+                app:cornerRadius="12dp"
+                app:icon="@android:drawable/ic_menu_call"
+                app:iconGravity="textStart"
+                app:iconPadding="4dp"
+                app:iconSize="16dp"
+                app:iconTint="@color/white" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnEliminarContacto"
+                style="@style/Widget.Material3.Button.IconButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="@dimen/margin_4"
+                android:contentDescription="@string/contacto_eliminar_desc"
+                app:icon="@android:drawable/ic_menu_delete"
+                app:iconGravity="textStart"
+                app:iconPadding="0dp"
+                app:iconTint="@color/safecare_alerta" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

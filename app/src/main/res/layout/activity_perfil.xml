@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/contenedorPrincipalPerfil"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_app_screen"
+    tools:context=".ui.PerfilActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorSurface">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/barraHerramientasPerfil"
+            style="@style/Widget.Material3.Toolbar.Surface"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:contentDescription="@string/perfil_titulo_pantalla"
+            app:navigationContentDescription="@string/perfil_desc_volver"
+            app:navigationIcon="@drawable/ic_navegacion_atras"
+            app:navigationIconTint="@color/safecare_primary"
+            app:title="@string/perfil_titulo_pantalla"
+            app:titleTextColor="@color/safecare_primary" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:paddingStart="@dimen/margin_16"
+        android:paddingTop="@dimen/margin_8"
+        android:paddingEnd="@dimen/margin_16"
+        android:paddingBottom="@dimen/margin_24">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_8"
+                android:background="@drawable/fondo_avatar_contacto"
+                android:contentDescription="@string/perfil_contenido_desc_icono_cuenta"
+                android:padding="2dp">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:contentDescription="@null"
+                    app:contentPadding="24dp"
+                    app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"
+                    app:srcCompat="@drawable/ic_cuenta_usuario_perfil"
+                    app:tint="@color/white" />
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_8"
+                android:gravity="center"
+                android:text="@string/perfil_subtitulo"
+                android:textColor="@color/safecare_text_secondary"
+                android:textSize="14sp" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_24"
+                app:cardBackgroundColor="@color/safecare_surface"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="4dp"
+                app:strokeColor="@color/safecare_divider"
+                app:strokeWidth="0.5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/margin_16">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilNombreUsuario"
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/perfil_hint_nombre"
+                        app:boxStrokeColor="@color/safecare_primary"
+                        app:hintTextColor="@color/safecare_primary">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etNombreUsuario"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:imeOptions="actionNext"
+                            android:inputType="textPersonName|textCapWords"
+                            android:maxLines="1" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilCorreoUsuario"
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_12"
+                        android:enabled="false"
+                        android:hint="@string/perfil_hint_correo"
+                        app:boxStrokeColor="@color/safecare_text_secondary"
+                        app:hintTextColor="@color/safecare_text_secondary">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etCorreoUsuario"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:clickable="false"
+                            android:cursorVisible="false"
+                            android:focusable="false"
+                            android:inputType="textEmailAddress"
+                            android:longClickable="false"
+                            android:maxLines="1" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilContactoEmergencia"
+                        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_12"
+                        android:hint="@string/perfil_hint_contacto_emergencia"
+                        app:boxStrokeColor="@color/safecare_primary"
+                        app:hintTextColor="@color/safecare_primary">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etContactoEmergencia"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:imeOptions="actionDone"
+                            android:inputType="phone"
+                            android:maxLines="1" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCambiarContrasena"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_16"
+                android:minHeight="52dp"
+                android:text="@string/perfil_boton_cambiar_contraseña"
+                android:textAllCaps="false"
+                app:cornerRadius="20dp"
+                app:strokeColor="@color/safecare_primary" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnGuardarCambios"
+                style="@style/Widget.Material3.Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_12"
+                android:minHeight="56dp"
+                android:background="@drawable/gradient_boton_primario"
+                android:text="@string/perfil_boton_guardar"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                app:backgroundTint="@null"
+                app:cornerRadius="20dp"
+                app:elevation="4dp" />
+
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:id="@+id/indicadorCargaPerfil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margin_16"
+                android:indeterminate="true"
+                android:visibility="gone"
+                app:indicatorColor="@color/safecare_primary" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

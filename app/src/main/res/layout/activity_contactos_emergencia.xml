@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/contenedorPrincipalContactosEmergencia"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_app_screen"
+    tools:context=".ui.ContactosEmergenciaActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorSurface">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/barraHerramientasContactosEmergencia"
+            style="@style/Widget.Material3.Toolbar.Surface"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:navigationContentDescription="@string/perfil_desc_volver"
+            app:navigationIcon="@drawable/ic_navegacion_atras"
+            app:navigationIconTint="@color/safecare_primary"
+            app:title="@string/contactos_emergencia_titulo_barra"
+            app:titleTextColor="@color/safecare_primary" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:paddingStart="@dimen/margin_16"
+        android:paddingTop="@dimen/margin_8"
+        android:paddingEnd="@dimen/margin_16"
+        android:paddingBottom="88dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:letterSpacing="0.02"
+            android:text="@string/seccion_contactos_titulo"
+            android:textColor="@color/safecare_primary"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_4"
+            android:text="@string/seccion_contactos_subtitulo"
+            android:textColor="@color/safecare_text_secondary"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_16"
+            android:text="@string/contacto_destino_titulo"
+            android:textColor="@color/safecare_primary"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/tarjetaDestino112"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_8"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardBackgroundColor="@color/safecare_surface"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="1dp"
+            app:strokeColor="@color/safecare_primary"
+            app:strokeWidth="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/margin_12">
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/radioDestino112"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:focusable="false" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/contacto_destino_112"
+                        android:textColor="@color/safecare_primary"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_4"
+                        android:text="@string/contacto_destino_112_desc"
+                        android:textColor="@color/safecare_text_secondary"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/tarjetaDestinoContacto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_8"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardBackgroundColor="@color/safecare_surface"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="1dp"
+            app:strokeColor="@color/safecare_divider"
+            app:strokeWidth="0.5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/margin_12">
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/radioDestinoContacto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:focusable="false" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/contacto_destino_personalizado"
+                        android:textColor="@color/safecare_primary"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_4"
+                        android:text="@string/contacto_destino_personalizado_desc"
+                        android:textColor="@color/safecare_text_secondary"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/tvSeccionListaContactos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_16"
+            android:text="@string/contacto_seccion_lista_titulo"
+            android:textColor="@color/safecare_primary"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/contenedorListaContactos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_8"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/listaContactosConfianza"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:nestedScrollingEnabled="false"
+                android:overScrollMode="never"
+                android:scrollbars="vertical"
+                tools:itemCount="4"
+                tools:listitem="@layout/item_contacto_confianza" />
+
+            <TextView
+                android:id="@+id/tvEstadoVacioContactos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="88dp"
+                android:gravity="center"
+                android:padding="@dimen/margin_24"
+                android:text="@string/contacto_lista_vacia"
+                android:textColor="@color/safecare_text_secondary"
+                android:textSize="14sp"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tvAvisoSinDestinoContacto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="88dp"
+                android:gravity="center"
+                android:padding="@dimen/margin_8"
+                android:text="@string/contacto_sin_destino_seleccionado"
+                android:textColor="@color/safecare_alerta"
+                android:textSize="13sp"
+                android:visibility="gone"
+                tools:visibility="visible" />
+        </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/btnAnadirContacto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/margin_16"
+        android:text="@string/contacto_anadir"
+        app:icon="@android:drawable/ic_input_add" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

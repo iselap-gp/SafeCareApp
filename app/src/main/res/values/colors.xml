@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="safecare_primary">#1A237E</color>
+    <color name="safecare_primary_variant">#0D133D</color>
+    <color name="safecare_primary_light">#3949AB</color>
+    <color name="safecare_primary_soft">#5C6BC0</color>
+    <color name="safecare_on_primary">#FFFFFFFF</color>
+    <color name="safecare_primary_container">#E8EAF6</color>
+    <color name="safecare_on_primary_container">#1A237E</color>
+    <!-- Fondos con tinte azul -->
+    <color name="safecare_background">#E3EBF9</color>
+    <color name="safecare_background_soft">#F0F4FF</color>
+    <color name="safecare_surface">#FFFFFFFF</color>
+    <color name="safecare_surface_tint">#F5F8FF</color>
+    <color name="safecare_stroke">#90A4D4</color>
+    <color name="safecare_text_on_blue">#FFFFFF</color>
+    <color name="safecare_text_on_blue_secundario">#E8EAF6</color>
+    <color name="safecare_alerta">#D32F2F</color>
+    <color name="safecare_alerta_fondo">#FFEBEE</color>
+    <color name="safecare_exito">#388E3C</color>
+    <color name="safecare_tonal_cocina">#E8F5E9</color>
+    <color name="safecare_panico_brillante">#E53935</color>
+    <color name="safecare_text_secondary">#5C6B8A</color>
+    <color name="safecare_divider">#331A237E</color>
+    <color name="safecare_estado_protegido">#1B5E20</color>
+    <color name="safecare_estado_protegido_fondo">#2E7D32</color>
+    <color name="safecare_panico">#B71C1C</color>
+    <!-- Eventos historial -->
+    <color name="safecare_evento_alerta">#D32F2F</color>
+    <color name="safecare_evento_info">#1565C0</color>
+    <color name="safecare_evento_sistema">#2E7D32</color>
+    <!-- Fondos suaves para contadores -->
+    <color name="safecare_tint_alerta">#FFEBEE</color>
+    <color name="safecare_tint_panico">#FCE4EC</color>
+    <color name="safecare_tint_info">#E3F2FD</color>
+    <color name="safecare_tint_sistema">#E8F5E9</color>
+    <!-- Modo escudo / acentos -->
+    <color name="safecare_modo_casa_escudo">#E8F5E9</color>
+    <color name="safecare_modo_fuera_escudo">#FFF3E0</color>
+    <!-- Navegación inferior (azul medio, no tan oscuro) -->
+    <color name="safecare_nav_surface">#3949AB</color>
+    <color name="safecare_status_bar">#303F9F</color>
+    <color name="safecare_overlay_camara">#993949AB</color>
+    <color name="safecare_nav_item_activo">#FFFFFFFF</color>
+    <color name="safecare_nav_item_inactivo">#D9FFFFFF</color>
+    <color name="safecare_nav_indicator">#4DFFFFFF</color>
+    <!-- Monitor telemetría consola TFC -->
+    <color name="safecare_terminal_fondo">#1E1E1E</color>
+    <color name="safecare_terminal_texto">#A5F3A5</color>
+    <color name="safecare_terminal_borde">#4CAF50</color>
+</resources>

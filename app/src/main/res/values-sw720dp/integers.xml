@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="contactos_grid_columnas">4</integer>
+</resources>
