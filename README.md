@@ -89,7 +89,7 @@ El núcleo lógico de decisión ante incidentes se encuentra aislado en la clase
 ### Opción B: Entorno de desarrollo
 1. Clona el repositorio:
    ```bash
-   git clone [https://github.com/iselapilar2006-prog/SafeCareApp.git](https://github.com/iselapilar2006-prog/SafeCareApp.git)
+   git clone https://github.com/iselapilar2006-prog/SafeCareApp.git
    ```
 2. Abre el proyecto en Android Studio (Ladybug / Hedgehog o superior).
 3. Configuración de Firebase:
